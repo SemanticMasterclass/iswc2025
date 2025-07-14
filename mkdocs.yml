@@ -1,0 +1,32 @@
+site_name: Tutorial ISWC 2025
+site_description: OWL or SHACL - A beginner's guide to making the right choice between OWL and SHACL.
+site_author: Tara Raafat & Davide D'Amico
+copyright: Copyright © 2025 Semantic Masterclass
+site_url: https://semanticmasterclass.github.io/iswc2025/
+
+theme:
+  name: material
+  palette:
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: amber
+      accent: amber
+
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: amber
+      accent: amber
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.path
+    - toc.integrate
+    - navigation.top
+    - navigation.footer
