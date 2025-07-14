@@ -3,6 +3,8 @@ site_description: OWL or SHACL - A beginner's guide to making the right choice b
 site_author: Tara Raafat & Davide D'Amico
 copyright: Copyright © 2025 Semantic Masterclass
 site_url: https://semanticmasterclass.github.io/iswc2025/
+repo_url: https://github.com/SemanticMasterclass/iswc2025
+repo_name: SemanticMasterclass/iswc2025
 
 theme:
   name: material
@@ -22,6 +24,10 @@ theme:
         name: Light mode
       primary: amber
       accent: amber
+  icon:
+    repo: fontawesome/brands/github
+    logo:  fontawesome/solid/play
+  favicon: assets/play-button.png
   font:
     text: Roboto
     code: Roboto Mono
