@@ -24,13 +24,19 @@ theme:
         name: Light mode
       primary: amber
       accent: amber
+  
+  logo: assets/logo.png
+
   icon:
     repo: fontawesome/brands/github
     logo:  fontawesome/solid/play
-  favicon: assets/play-button.png
+  
+  favicon: assets/favicon.ico
+  
   font:
     text: Roboto
     code: Roboto Mono
+  
   features:
     - navigation.path
     - toc.integrate
