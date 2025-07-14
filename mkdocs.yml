@@ -51,4 +51,13 @@ theme:
     - navigation.path
     - toc.integrate
     - navigation.top
+    - navigation.tabs
     - navigation.footer
+
+# Page tree
+nav:
+  - Home: index.md
+  - Preparation: preparation.md
+  - SPARQL: sparql.md
+  - SHACL: shacl.md
+  - About: about.md

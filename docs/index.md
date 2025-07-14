@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # OWL or SHACL: A Beginner’s Guide to Making the Right Choice
 
 by Tara Raafat and Davide D'Amico
