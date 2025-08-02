@@ -20,8 +20,7 @@ A special emphasis will be placed on helping attendees understand the distinctio
 ## Learning outcomes
 
 - Understand key differences and use cases for OWL and SHACL
-- Clarify the implications of the Open World Assumption (OWA) vs. Closed World
-- Assumptions (CWA) through hands-on examples
+- Clarify the implications of the Open World Assumption (OWA) vs. Closed World Assumptions (CWA) through hands-on examples
 - Gain practical skills creating ontologies and shapes
 - Use Protégé and SHACL Playground effectively
 - Run SPARQL queries to test models and shapes
