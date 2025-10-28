@@ -47,8 +47,6 @@ ex:ArtefactShape a sh:NodeShape ;
   ] .
 ```
 
----
-
 ```
 @prefix ex: <http://example.com/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
