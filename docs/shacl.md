@@ -11,6 +11,55 @@ hide:
 <div class="grid cards" markdown>
 
 ```
+### SHACL shape ###
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+ex:ArtefactShape a sh:NodeShape ;
+  sh:targetClass ex:Artefact ;
+
+  sh:property [
+    sh:path ex:belongsToHistoricalMovement ;
+    sh:datatype xsd:string ;
+  ] ;
+
+  sh:property [
+    sh:path ex:hasArtist ;
+    sh:class ex:Artist ;
+  ] .
+```
+
+```
+### Data graph ###
+@prefix ex: <http://example.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+ex:the_last_supper rdf:type ex:Artefact ;
+                   ex:belongsToHistoricalMovement "Renaissance" ;
+                   ex:hasArtist ex:leonardo_da_vinci ;
+                   rdfs:label "The Last Supper" .
+
+ex:leonardo_da_vinci a ex:Artist .
+```
+
+</div>
+
+- Shape 2: [https://s.zazuko.com/V8CWRc](https://s.zazuko.com/V8CWRc){:target="\_blank"}
+
+<div class="grid cards" markdown>
+
+```
+### SHACL shape ###
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix ex: <http://example.com/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -48,6 +97,7 @@ ex:ArtefactShape a sh:NodeShape ;
 ```
 
 ```
+### Data graph ###
 @prefix ex: <http://example.com/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -72,5 +122,3 @@ ex:leonardo_da_vinci a ex:Artist .
 ```
 
 </div>
-
-- Shape 2: [https://s.zazuko.com/V8CWRc](https://s.zazuko.com/V8CWRc){:target="\_blank"}
