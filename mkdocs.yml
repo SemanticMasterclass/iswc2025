@@ -53,6 +53,7 @@ theme:
     - navigation.top
     - navigation.tabs
     - navigation.footer
+    - content.code.copy
 
 markdown_extensions:
   - attr_list
