@@ -8,11 +8,8 @@ hide:
 
 - Shape 1: [https://s.zazuko.com/dwpSfy](https://s.zazuko.com/dwpSfy){:target="\_blank"}
 
-<div class="grid" markdown style="grid-template-columns: 1fr 1fr; gap: 20px;">
-
-<div markdown>
-
-**Column 1**
+::::::{.columns}
+:::{.column}
 
 ```xml
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -51,7 +48,8 @@ ex:ArtefactShape a sh:NodeShape ;
   ] .
 ```
 
-**Comumn 2**
+:::
+:::{.column}
 
 ```xml
 @prefix ex: <http://example.com/> .
@@ -76,5 +74,8 @@ ex:mona_lisa rdf:type ex:Artefact ;
 
 ex:leonardo_da_vinci a ex:Artist .
 ```
+
+:::
+::::::
 
 - Shape 2: [https://s.zazuko.com/V8CWRc](https://s.zazuko.com/V8CWRc){:target="\_blank"}
