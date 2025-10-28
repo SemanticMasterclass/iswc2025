@@ -6,7 +6,7 @@ hide:
 
 # SHACL
 
-- Shape 1: [https://s.zazuko.com/dwpSfy](https://s.zazuko.com/dwpSfy){:target="\_blank"}
+## Shape 1: [https://s.zazuko.com/dwpSfy](https://s.zazuko.com/dwpSfy){:target="\_blank"}
 
 <div class="grid cards" markdown>
 
