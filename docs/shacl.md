@@ -54,7 +54,7 @@ ex:leonardo_da_vinci a ex:Artist .
 
 </div>
 
-- Shape 2: [https://s.zazuko.com/V8CWRc](https://s.zazuko.com/V8CWRc){:target="\_blank"}
+## Shape 2: [https://s.zazuko.com/V8CWRc](https://s.zazuko.com/V8CWRc){:target="\_blank"}
 
 <div class="grid cards" markdown>
 
@@ -119,6 +119,70 @@ ex:mona_lisa rdf:type ex:Artefact ;
              rdfs:label "Mona Lisa" .
 
 ex:leonardo_da_vinci a ex:Artist .
+```
+
+</div>
+
+## Shape 3: [](){:target="\_blank"}
+
+<div class="grid cards" markdown>
+
+```
+### SHACL shape ###
+
+```
+
+```
+### Data graph ###
+
+```
+
+</div>
+
+## Shape 4: [](){:target="\_blank"}
+
+<div class="grid cards" markdown>
+
+```
+### SHACL shape ###
+
+```
+
+```
+### Data graph ###
+
+```
+
+</div>
+
+## Shape 5: [](){:target="\_blank"}
+
+<div class="grid cards" markdown>
+
+```
+### SHACL shape ###
+
+```
+
+```
+### Data graph ###
+
+```
+
+</div>
+
+## Shape 6: [](){:target="\_blank"}
+
+<div class="grid cards" markdown>
+
+```
+### SHACL shape ###
+
+```
+
+```
+### Data graph ###
+
 ```
 
 </div>
