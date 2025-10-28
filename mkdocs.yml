@@ -58,9 +58,9 @@ theme:
 markdown_extensions:
   - attr_list
 
-plugins:
-  - search
-  - open-in-new-tab
+# plugins:
+#   - search
+#   - open-in-new-tab
 
 # Page tree
 nav:
