@@ -11,7 +11,9 @@ hide:
 ::::::{.columns}
 :::{.column}
 
-```xml
+col 1
+
+<!-- ```xml
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix ex: <http://example.com/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -46,12 +48,14 @@ ex:ArtefactShape a sh:NodeShape ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
   ] .
-```
+``` -->
 
 :::
 :::{.column}
 
-```xml
+col 2
+
+<!-- ```xml
 @prefix ex: <http://example.com/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -73,7 +77,7 @@ ex:mona_lisa rdf:type ex:Artefact ;
              rdfs:label "Mona Lisa" .
 
 ex:leonardo_da_vinci a ex:Artist .
-```
+``` -->
 
 :::
 ::::::
