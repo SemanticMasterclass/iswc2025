@@ -10,9 +10,7 @@ hide:
 
 <div class="grid cards" markdown>
 
----
-
-```xml
+```
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix ex: <http://example.com/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -51,7 +49,7 @@ ex:ArtefactShape a sh:NodeShape ;
 
 ---
 
-```xml
+```
 @prefix ex: <http://example.com/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
