@@ -6,7 +6,7 @@ hide:
 
 # SHACL
 
-## Shape 1: [https://s.zazuko.com/dwpSfy](https://s.zazuko.com/dwpSfy){:target="\_blank"}
+## Shape 1: [https://s.zazuko.com/RJDd4L](https://s.zazuko.com/RJDd4L){:target="\_blank"}
 
 <div class="grid cards" markdown>
 
@@ -44,12 +44,18 @@ ex:ArtefactShape a sh:NodeShape ;
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 
-ex:the_last_supper rdf:type ex:Artefact ;
-                   ex:belongsToHistoricalMovement "Renaissance" ;
-                   ex:hasArtist ex:leonardo_da_vinci ;
-                   rdfs:label "The Last Supper" .
+###  http://example.com/leonardodavinci
+ex:leonardodavinci rdf:type owl:NamedIndividual ,
+                            ex:Artist ;
+                   rdfs:label "Leonardo Da Vinci" .
 
-ex:leonardo_da_vinci a ex:Artist .
+
+###  http://example.com/thelastsupper
+ex:thelastsupper rdf:type owl:NamedIndividual ,
+                          ex:Artefact ;
+                 ex:hasArtist ex:leonardodavinci ;
+                 ex:belongsToHistoricalMovement "Renaissance" ;
+                 rdfs:label "The Last Supper" .
 ```
 
 </div>
