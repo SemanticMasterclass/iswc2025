@@ -115,7 +115,7 @@ PREFIX ex: <http://example.com/>
 
 SELECT DISTINCT ?x
 WHERE {
-?x rdf:type/rdfs:subClassOf\* ex:Artefact .
+?x rdf:type/rdfs:subClassOf* ex:Artefact .
  }
 ```
 

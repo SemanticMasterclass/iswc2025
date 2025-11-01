@@ -92,7 +92,8 @@ ex:leonardo_da_vinci rdf:type owl:NamedIndividual ,
 
 
 ###  http://example.com/michelangelo
-ex:michelangelo rdf:type owl:NamedIndividual ;
+ex:michelangelo rdf:type owl:NamedIndividual ,
+                         ex:Artist ;
                 rdfs:label "Michelangelo" .
 
 
@@ -111,6 +112,8 @@ ex:the_last_supper rdf:type owl:NamedIndividual ,
                             ex:Artefact ;
                    ex:hasArtist ex:leonardo_da_vinci ;
                    ex:belongsToHistoricalMovement "Renaissance" ;
+                   ex:hasEndCreationDate 1498 ;
+                   ex:hasStartCreationDate 1494 ;
                    rdfs:label "The Last Supper" .
 
 

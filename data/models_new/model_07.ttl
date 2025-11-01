@@ -7,7 +7,16 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://base.com/inferred/> .
 
-<http://base.com/inferred/> rdf:type owl:Ontology .
+<http://base.com/> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://example.com/hasPaintType
+ex:hasPaintType rdf:type owl:AnnotationProperty ;
+                rdfs:range xsd:string .
+
 
 #################################################################
 #    Object Properties
@@ -27,6 +36,12 @@ ex:belongsToHistoricalMovement rdf:type owl:DatatypeProperty .
 
 ###  http://example.com/hasEndCreationDate
 ex:hasEndCreationDate rdf:type owl:DatatypeProperty .
+
+
+###  http://example.com/hasPaintType
+ex:hasPaintType rdf:type owl:DatatypeProperty ;
+                rdfs:domain ex:Painting ;
+                rdfs:range xsd:string .
 
 
 ###  http://example.com/hasSculptureMaterial
@@ -59,6 +74,10 @@ ex:Artefact rdf:type owl:Class ;
 ex:Artist rdf:type owl:Class .
 
 
+###  http://example.com/Painting
+ex:Painting rdf:type owl:Class .
+
+
 ###  http://example.com/Sculpture
 ex:Sculpture rdf:type owl:Class ;
              owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -89,7 +108,8 @@ ex:leonardo_da_vinci rdf:type owl:NamedIndividual ,
 
 
 ###  http://example.com/michelangelo
-ex:michelangelo rdf:type owl:NamedIndividual ;
+ex:michelangelo rdf:type owl:NamedIndividual ,
+                         ex:Artist ;
                 rdfs:label "Michelangelo" .
 
 
@@ -99,6 +119,7 @@ ex:mona_lisa rdf:type owl:NamedIndividual ,
              ex:hasArtist ex:leonardo_da_vinci ;
              ex:belongsToHistoricalMovement "Renaissance" ;
              ex:hasEndCreationDate 1517 ;
+             ex:hasPaintType "Oil paint" ;
              ex:hasStartCreationDate 1503 ;
              rdfs:label "Mona Lisa" .
 
@@ -108,6 +129,9 @@ ex:the_last_supper rdf:type owl:NamedIndividual ,
                             ex:Artefact ;
                    ex:hasArtist ex:leonardo_da_vinci ;
                    ex:belongsToHistoricalMovement "Renaissance" ;
+                   ex:hasEndCreationDate 1498 ;
+                   ex:hasPaintType "Mural Paint" ;
+                   ex:hasStartCreationDate 1494 ;
                    rdfs:label "The Last Supper" .
 
 

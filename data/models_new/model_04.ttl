@@ -29,10 +29,6 @@ ex:belongsToHistoricalMovement rdf:type owl:DatatypeProperty .
 ex:hasEndCreationDate rdf:type owl:DatatypeProperty .
 
 
-###  http://example.com/hasSculptureMaterial
-ex:hasSculptureMaterial rdf:type owl:DatatypeProperty .
-
-
 ###  http://example.com/hasStartCreationDate
 ex:hasStartCreationDate rdf:type owl:DatatypeProperty .
 
@@ -80,7 +76,8 @@ ex:leonardo_da_vinci rdf:type owl:NamedIndividual ,
 
 
 ###  http://example.com/michelangelo
-ex:michelangelo rdf:type owl:NamedIndividual ;
+ex:michelangelo rdf:type owl:NamedIndividual ,
+                         ex:Artist ;
                 rdfs:label "Michelangelo" .
 
 
