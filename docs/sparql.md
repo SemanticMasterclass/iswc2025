@@ -116,7 +116,7 @@ PREFIX ex: <http://example.com/>
 SELECT DISTINCT ?x
 WHERE {
 ?x rdf:type/rdfs:subClassOf* ex:Artefact .
- }
+}
 ```
 
 ### Query 2.5
@@ -131,7 +131,7 @@ PREFIX ex: <http://example.com/>
 SELECT DISTINCT ?x
 WHERE {
 ?x a ex:Artefact .
- }
+}
 ```
 
 ## Section 3 - Property chain
