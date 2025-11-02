@@ -15,8 +15,10 @@
 
 ###  http://example.com/belongsToHistoricalMovement
 ex:belongsToHistoricalMovement rdf:type owl:ObjectProperty ;
-                                rdfs:domain ex:Artefact ;
-                                rdfs:range ex:Movement .
+                               rdfs:range ex:Movement ;
+                               owl:propertyChainAxiom ( ex:isArtistOf
+                                                        ex:belongsToHistoricalMovement
+                                                      ) .
 
 
 ###  http://example.com/hasArtist

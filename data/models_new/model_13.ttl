@@ -15,8 +15,10 @@
 
 ###  http://example.com/belongsToHistoricalMovement
 ex:belongsToHistoricalMovement rdf:type owl:ObjectProperty ;
-                                rdfs:domain ex:Artefact ;
-                                rdfs:range ex:Movement .
+                               rdfs:range ex:Movement ;
+                               owl:propertyChainAxiom ( ex:isArtistOf
+                                                        ex:belongsToHistoricalMovement
+                                                      ) .
 
 
 ###  http://example.com/hasArtist
@@ -32,12 +34,26 @@ ex:isArtistOf rdf:type owl:ObjectProperty ;
               rdfs:range ex:Artefact .
 
 
+###  http://example.com/isExhibitedIn
+ex:isExhibitedIn rdf:type owl:ObjectProperty ;
+                 rdfs:domain ex:Artefact ;
+                 rdfs:range ex:Premises .
+
+
+###  http://example.com/isLocatedIn
+ex:isLocatedIn rdf:type owl:ObjectProperty ;
+               owl:propertyChainAxiom ( ex:isExhibitedIn
+                                        ex:isLocatedIn
+                                      ) .
+
+
 #################################################################
 #    Data properties
 #################################################################
 
 ###  http://example.com/hasEndCreationDate
-ex:hasEndCreationDate rdf:type owl:DatatypeProperty ;
+ex:hasEndCreationDate rdf:type owl:DatatypeProperty ,
+                               owl:FunctionalProperty ;
                       rdfs:domain ex:Artefact ;
                       rdfs:range xsd:integer .
 
@@ -59,7 +75,8 @@ ex:hasSculptureMaterial rdf:type owl:DatatypeProperty ;
 
 
 ###  http://example.com/hasStartCreationDate
-ex:hasStartCreationDate rdf:type owl:DatatypeProperty ;
+ex:hasStartCreationDate rdf:type owl:DatatypeProperty ,
+                                 owl:FunctionalProperty ;
                         rdfs:domain ex:Artefact ;
                         rdfs:range xsd:integer .
 
@@ -92,6 +109,20 @@ ex:Artefact rdf:type owl:Class ;
 ex:Artist rdf:type owl:Class .
 
 
+###  http://example.com/City
+ex:City rdf:type owl:Class ;
+        rdfs:subClassOf ex:Location .
+
+
+###  http://example.com/Country
+ex:Country rdf:type owl:Class ;
+           rdfs:subClassOf ex:Location .
+
+
+###  http://example.com/Location
+ex:Location rdf:type owl:Class .
+
+
 ###  http://example.com/Movement
 ex:Movement rdf:type owl:Class .
 
@@ -103,6 +134,11 @@ ex:Painting rdf:type owl:Class ;
                                   owl:someValuesFrom xsd:string
                                 ] ;
             rdfs:subClassOf ex:Artefact .
+
+
+###  http://example.com/Premises
+ex:Premises rdf:type owl:Class ;
+            rdfs:subClassOf ex:Location .
 
 
 ###  http://example.com/Sculpture
@@ -123,14 +159,16 @@ ex:cubism rdf:type owl:NamedIndividual ,
                    ex:Movement ;
           ex:hasEndDate 1940 ;
           ex:hasStartDate 1900 ;
-          rdfs:label "Cubism" .
+          rdfs:label "Cubism"@en .
 
 
 ###  http://example.com/david
 ex:david rdf:type owl:NamedIndividual ,
+                  ex:Artefact ,
                   ex:Sculpture ;
          ex:belongsToHistoricalMovement ex:renaissance ;
          ex:hasArtist ex:michelangelo ;
+         ex:isExhibitedIn ex:gallery_of_the_academy_florence ;
          ex:hasEndCreationDate 1504 ;
          ex:hasSculptureMaterial "Marble" ;
          ex:hasStartCreationDate 1501 ;
@@ -140,6 +178,8 @@ ex:david rdf:type owl:NamedIndividual ,
 ###  http://example.com/edvard_munch
 ex:edvard_munch rdf:type owl:NamedIndividual ,
                          ex:Artist ;
+                ex:belongsToHistoricalMovement ex:expressionism ;
+                ex:isArtistOf ex:the_scream ;
                 rdfs:label "Edvard Munch" .
 
 
@@ -151,20 +191,52 @@ ex:expressionism rdf:type owl:NamedIndividual ,
                  rdfs:label "Expressionism" .
 
 
+###  http://example.com/florence
+ex:florence rdf:type owl:NamedIndividual ,
+                     ex:City ;
+            ex:isLocatedIn ex:italy ;
+            rdfs:label "Florence"@en .
+
+
+###  http://example.com/gallery_of_the_academy_florence
+ex:gallery_of_the_academy_florence rdf:type owl:NamedIndividual ,
+                                            ex:Premises ;
+                                   ex:isLocatedIn ex:florence ;
+                                   rdfs:label "Gallery of the Academy of Florence"@en .
+
+
+###  http://example.com/italy
+ex:italy rdf:type owl:NamedIndividual ,
+                  ex:Country ;
+         rdfs:label "Italy"@en .
+
+
 ###  http://example.com/leonardo_da_vinci
 ex:leonardo_da_vinci rdf:type owl:NamedIndividual ,
                               ex:Artist ;
+                     ex:belongsToHistoricalMovement ex:renaissance ;
+                     ex:isArtistOf ex:mona_lisa ,
+                                   ex:the_last_supper ;
                      rdfs:label "Leonardo Da Vinci" .
 
 
 ###  http://example.com/michelangelo
 ex:michelangelo rdf:type owl:NamedIndividual ,
                          ex:Artist ;
+                ex:belongsToHistoricalMovement ex:renaissance ;
+                ex:isArtistOf ex:david ;
                 rdfs:label "Michelangelo" .
+
+
+###  http://example.com/milan
+ex:milan rdf:type owl:NamedIndividual ;
+         ex:isLocatedIn ex:italy ;
+         rdfs:label "Milan" .
 
 
 ###  http://example.com/mona_lisa
 ex:mona_lisa rdf:type owl:NamedIndividual ,
+                      ex:Artefact ,
                       ex:Painting ;
              ex:belongsToHistoricalMovement ex:renaissance ;
              ex:hasArtist ex:leonardo_da_vinci ;
@@ -176,6 +248,8 @@ ex:mona_lisa rdf:type owl:NamedIndividual ,
 ###  http://example.com/pablo_picasso
 ex:pablo_picasso rdf:type owl:NamedIndividual ,
                           ex:Artist ;
+                 ex:belongsToHistoricalMovement ex:cubism ;
+                 ex:isArtistOf ex:weeping_woman ;
                  rdfs:label "Pablo Picasso" .
 
 
@@ -190,14 +264,24 @@ ex:renaissance rdf:type owl:NamedIndividual ,
 ###  http://example.com/sandro_botticelli
 ex:sandro_botticelli rdf:type owl:NamedIndividual ,
                               ex:Artist ;
+                     ex:belongsToHistoricalMovement ex:renaissance ;
+                     ex:isArtistOf ex:the_birth_of_venus ;
                      rdfs:label "Sandro Botticelli" .
+
+
+###  http://example.com/santa_maria_delle_grazie
+ex:santa_maria_delle_grazie rdf:type owl:NamedIndividual ;
+                            ex:isLocatedIn ex:milan ;
+                            rdfs:label "Santa Maria delle Grazie" .
 
 
 ###  http://example.com/the_birth_of_venus
 ex:the_birth_of_venus rdf:type owl:NamedIndividual ,
+                               ex:Artefact ,
                                ex:Painting ;
                       ex:belongsToHistoricalMovement ex:renaissance ;
                       ex:hasArtist ex:sandro_botticelli ;
+                      ex:isExhibitedIn ex:uffizi_gallery ;
                       ex:hasEndCreationDate 1486 ;
                       ex:hasStartCreationDate 1484 ;
                       rdfs:label "The Birth of Venus" .
@@ -205,9 +289,11 @@ ex:the_birth_of_venus rdf:type owl:NamedIndividual ,
 
 ###  http://example.com/the_last_supper
 ex:the_last_supper rdf:type owl:NamedIndividual ,
+                            ex:Artefact ,
                             ex:Painting ;
                    ex:belongsToHistoricalMovement ex:renaissance ;
                    ex:hasArtist ex:leonardo_da_vinci ;
+                   ex:isExhibitedIn ex:santa_maria_delle_grazie ;
                    ex:hasEndCreationDate 1498 ;
                    ex:hasStartCreationDate 1494 ;
                    rdfs:label "The Last Supper" .
@@ -215,6 +301,7 @@ ex:the_last_supper rdf:type owl:NamedIndividual ,
 
 ###  http://example.com/the_scream
 ex:the_scream rdf:type owl:NamedIndividual ,
+                       ex:Artefact ,
                        ex:Painting ;
               ex:belongsToHistoricalMovement ex:expressionism ;
               ex:hasArtist ex:edvard_munch ;
@@ -223,8 +310,15 @@ ex:the_scream rdf:type owl:NamedIndividual ,
               rdfs:label "The Scream" .
 
 
+###  http://example.com/uffizi_gallery
+ex:uffizi_gallery rdf:type owl:NamedIndividual ;
+                  ex:isLocatedIn ex:florence ;
+                  rdfs:label "Uffizi Gallery" .
+
+
 ###  http://example.com/weeping_woman
 ex:weeping_woman rdf:type owl:NamedIndividual ,
+                          ex:Artefact ,
                           ex:Painting ;
                  ex:belongsToHistoricalMovement ex:cubism ;
                  ex:hasArtist ex:pablo_picasso ;

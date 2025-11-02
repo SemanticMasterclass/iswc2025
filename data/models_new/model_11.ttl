@@ -15,21 +15,14 @@
 
 ###  http://example.com/belongsToHistoricalMovement
 ex:belongsToHistoricalMovement rdf:type owl:ObjectProperty ;
-                                rdfs:domain ex:Artefact ;
-                                rdfs:range ex:Movement .
+                               rdfs:domain ex:Artefact ;
+                               rdfs:range ex:Movement .
 
 
 ###  http://example.com/hasArtist
 ex:hasArtist rdf:type owl:ObjectProperty ;
-             owl:inverseOf ex:isArtistOf ;
              rdfs:domain ex:Artefact ;
              rdfs:range ex:Artist .
-
-
-###  http://example.com/isArtistOf
-ex:isArtistOf rdf:type owl:ObjectProperty ;
-              rdfs:domain ex:Artist ;
-              rdfs:range ex:Artefact .
 
 
 #################################################################
@@ -89,7 +82,8 @@ ex:Artefact rdf:type owl:Class ;
 
 
 ###  http://example.com/Artist
-ex:Artist rdf:type owl:Class .
+ex:Artist rdf:type owl:Class ;
+          owl:disjointWith ex:Movement .
 
 
 ###  http://example.com/Movement
