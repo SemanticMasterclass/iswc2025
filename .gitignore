@@ -135,3 +135,6 @@ dmypy.json
 
 # MacFiles
 .DS_Store
+
+# old files
+.models_old/

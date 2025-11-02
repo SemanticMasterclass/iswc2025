@@ -1,10 +1,11 @@
+@prefix : <http://base.com/> .
 @prefix ex: <http://example.com/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://example.com/> .
+@base <http://base.com/> .
 
 <http://example.com/> rdf:type owl:Ontology .
 
@@ -26,10 +27,6 @@ ex:belongsToHistoricalMovement rdf:type owl:DatatypeProperty .
 
 ###  http://example.com/hasEndCreationDate
 ex:hasEndCreationDate rdf:type owl:DatatypeProperty .
-
-
-###  http://example.com/hasSculptureMaterial
-ex:hasSculptureMaterial rdf:type owl:DatatypeProperty .
 
 
 ###  http://example.com/hasStartCreationDate
@@ -86,7 +83,7 @@ ex:michelangelo rdf:type owl:NamedIndividual ,
 
 ###  http://example.com/mona_lisa
 ex:mona_lisa rdf:type owl:NamedIndividual ,
-                            ex:Artefact ;
+                      ex:Artefact ;
              ex:hasArtist ex:leonardo_da_vinci ;
              ex:belongsToHistoricalMovement "Renaissance" ;
              ex:hasEndCreationDate 1517 ;
@@ -99,6 +96,8 @@ ex:the_last_supper rdf:type owl:NamedIndividual ,
                             ex:Artefact ;
                    ex:hasArtist ex:leonardo_da_vinci ;
                    ex:belongsToHistoricalMovement "Renaissance" ;
+                   ex:hasEndCreationDate 1498 ;
+                   ex:hasStartCreationDate 1494 ;
                    rdfs:label "The Last Supper" .
 
 

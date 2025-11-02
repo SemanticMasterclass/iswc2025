@@ -1330,34 +1330,219 @@ ex:weeping_woman rdf:type owl:NamedIndividual ,
 
 </div>
 
-## Shape 13: [](){:target="\_blank"}
+## Shape 13: [https://s.zazuko.com/2Yg4EBo](https://s.zazuko.com/2Yg4EBo){:target="\_blank"}
 
 <div class="grid cards" markdown>
 
 ```
 ### SHACL shape ###
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
+ex:ArtefactShape a sh:NodeShape ;
+  sh:targetClass ex:Artefact ;
+
+  sh:property [
+    sh:path ex:belongsToHistoricalMovement ;
+    sh:class ex:Movement ;
+  ] ;
+
+  sh:property [
+    sh:path ex:hasArtist ;
+    sh:class ex:Artist ;
+  ] ;
+
+  sh:property [
+    sh:path ex:hasEndCreationDate ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+
+  sh:property [
+    sh:path ex:hasStartCreationDate ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] .
+
+ex:PaintingShape a sh:NodeShape ;
+  sh:targetClass ex:Painting ;
+  sh:node ex:ArtefactShape ;
+
+  sh:property [
+    sh:path ex:hasPaintType ;
+    sh:class ex:PaintType ;
+    sh:in (ex:oil_paint ex:mural_paint ex:tempera) ;
+  ] .
+
+ex:SculptureShape a sh:NodeShape ;
+  sh:targetClass ex:Sculpture ;
+  sh:node ex:ArtefactShape ;
+
+  sh:property [
+    sh:path ex:hasSculptureMaterial ;
+    sh:class ex:SculptureMaterial ;
+    sh:in (ex:marble ex:bronze) ;
+  ] .
 ```
 
 ```
 ### Data graph ###
+@prefix ex: <http://example.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-```
+ex:bronze rdf:type ex:SculptureMaterial ;
+          rdfs:label "Bronze" .
 
-</div>
+ex:cubism rdf:type ex:Movement ;
+          ex:hasEndDate 1940 ;
+          ex:hasStartDate 1900 ;
+          rdfs:label "Cubism" .
 
-## Shape 14: [](){:target="\_blank"}
+ex:david rdf:type ex:Sculpture ;
+         ex:belongsToHistoricalMovement ex:renaissance ;
+         ex:hasArtist ex:michelangelo ;
+         ex:hasSculptureMaterial ex:marble ;
+         ex:isExhibitedIn ex:gallery_of_the_academy_florence ;
+         ex:isLocatedIn ex:florence ,
+                        ex:italy ;
+         ex:hasEndCreationDate 1504 ;
+         ex:hasStartCreationDate 1501 ;
+         rdfs:label "David" .
 
-<div class="grid cards" markdown>
+ex:edvard_munch rdf:type ex:Artist ;
+                ex:belongsToHistoricalMovement ex:expressionism ;
+                ex:isArtistOf ex:the_scream ;
+                rdfs:label "Edvard Munch" .
 
-```
-### SHACL shape ###
+ex:expressionism rdf:type owl:NamedIndividual ,
+                          ex:Movement ;
+                 ex:hasEndDate 1910 ;
+                 ex:hasStartDate 1890 ;
+                 rdfs:label "Expressionism" .
 
-```
+ex:florence rdf:type ex:City ;
+            ex:isLocatedIn ex:italy ;
+            rdfs:label "Florence" .
 
-```
-### Data graph ###
+ex:fresco rdf:type owl:NamedIndividual ;
+          rdfs:label "Fresco" .
 
+ex:gallery_of_the_academy_florence rdf:type ex:Premises ;
+                                   ex:isLocatedIn ex:florence ,
+                                                  ex:italy ;
+                                   rdfs:label "Gallery of the Academy of Florence" .
+
+ex:italy rdf:type ex:Country ;
+         rdfs:label "Italy" .
+
+ex:leonardo_da_vinci rdf:type ex:Artist ;
+                     ex:belongsToHistoricalMovement ex:renaissance ;
+                     ex:isArtistOf ex:mona_lisa ,
+                                   ex:the_last_supper ;
+                     rdfs:label "Leonardo Da Vinci" .
+
+ex:marble rdf:type ex:SculptureMaterial ;
+          rdfs:label "Marble" .
+
+ex:michelangelo rdf:type ex:Artist ;
+                ex:belongsToHistoricalMovement ex:renaissance ;
+                ex:isArtistOf ex:david ;
+                rdfs:label "Michelangelo" .
+
+ex:milan rdf:type ex:City ;
+         ex:isLocatedIn ex:italy ;
+         rdfs:label "Milan" .
+
+ex:mona_lisa rdf:type ex:Painting ;
+             ex:belongsToHistoricalMovement ex:renaissance ;
+             ex:hasArtist ex:leonardo_da_vinci ;
+             ex:hasPaintType ex:oil_paint ;
+             ex:hasEndCreationDate 1517 ;
+             ex:hasStartCreationDate 1503 ;
+             rdfs:label "Mona Lisa" .
+
+ex:mural_paint rdf:type ex:PaintType ;
+               rdfs:label "Mural paint" .
+
+ex:oil_paint rdf:type ex:PaintType ;
+             rdfs:label "Oil paint" .
+
+ex:pablo_picasso rdf:type ex:Artist ;
+                 ex:belongsToHistoricalMovement ex:cubism ;
+                 ex:isArtistOf ex:weeping_woman ;
+                 rdfs:label "Pablo Picasso" .
+
+ex:renaissance rdf:type ex:Movement ;
+               ex:hasEndDate 1600 ;
+               ex:hasStartDate 1401 ;
+               rdfs:label "Renaissance" .
+
+ex:sandro_botticelli rdf:type ex:Artist ;
+                     ex:belongsToHistoricalMovement ex:renaissance ;
+                     ex:isArtistOf ex:the_birth_of_venus ;
+                     rdfs:label "Sandro Botticelli" .
+
+ex:santa_maria_delle_grazie rdf:type ex:Premises ;
+                            ex:isLocatedIn ex:italy ,
+                                           ex:milan ;
+                            rdfs:label "Santa Maria delle Grazie" .
+
+ex:tempera rdf:type ex:PaintType ;
+           rdfs:label "Tempera" .
+
+ex:the_birth_of_venus rdf:type ex:Painting ;
+                      ex:belongsToHistoricalMovement ex:renaissance ;
+                      ex:hasArtist ex:sandro_botticelli ;
+                      ex:hasPaintType ex:tempera ;
+                      ex:isExhibitedIn ex:uffizi_gallery ;
+                      ex:isLocatedIn ex:florence ,
+                                     ex:italy ;
+                      ex:hasEndCreationDate 1486 ;
+                      ex:hasStartCreationDate 1484 ;
+                      rdfs:label "The Birth of Venus" .
+
+ex:the_last_supper rdf:type ex:Painting ;
+                   ex:belongsToHistoricalMovement ex:renaissance ;
+                   ex:hasArtist ex:leonardo_da_vinci ;
+                   ex:hasPaintType ex:mural_paint ;
+                   ex:isExhibitedIn ex:santa_maria_delle_grazie ;
+                   ex:isLocatedIn ex:italy ,
+                                  ex:milan ;
+                   ex:hasEndCreationDate 1498 ;
+                   ex:hasStartCreationDate 1494 ;
+                   rdfs:label "The Last Supper" .
+
+ex:the_scream rdf:type ex:Painting ;
+              ex:belongsToHistoricalMovement ex:expressionism ;
+              ex:hasArtist ex:edvard_munch ;
+              ex:hasPaintType ex:oil_paint ;
+              ex:hasEndCreationDate 1893 ;
+              ex:hasStartCreationDate 1893 ;
+              rdfs:label "The Scream" .
+
+ex:uffizi_gallery rdf:type ex:Premises ;
+                  ex:isLocatedIn ex:florence ,
+                                 ex:italy ;
+                  rdfs:label "Uffizi Gallery" .
+
+ex:weeping_woman rdf:type ex:Painting ;
+                 ex:belongsToHistoricalMovement ex:cubism ;
+                 ex:hasArtist ex:pablo_picasso ;
+                 ex:hasPaintType ex:oil_paint ;
+                 ex:hasEndCreationDate 1937 ;
+                 ex:hasStartCreationDate 1937 ;
+                 rdfs:label "Weeping Woman" .
 ```
 
 </div>
